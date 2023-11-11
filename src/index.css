@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+@layer components{
+    .input-style{
+        @apply bg-slate-700 border-l-0 border-r-0 border-b-4 border-b-emerald-400 
+        text-white;
+    }
+
+    .button-style{
+        @apply flex justify-center items-center border-2 border-emerald-300
+         bg-gray-700 rounded-xl active:bg-gray-200 text-white active:text-black
+          cursor-pointer;
+    }
+
+    .middle-input{
+        @apply flex flex-col justify-center items-center text-left;
+    }
+
+    .md-button-style{
+        @apply w-[180px]
+    }
+}

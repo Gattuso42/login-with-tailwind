@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Header from "./components/Header";
+
 import "./index.css";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -10,11 +11,11 @@ function App() {
       flex
        items-center
        justify-center
-       bg-gradient-to-b from-red-500 to-black
+       bg-gradient-to-b from-gray-300 to-black
       h-screen 
       w-auto"
     >
-      <Header />
+      <Login />
     </div>
   );
 }
