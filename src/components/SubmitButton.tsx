@@ -1,13 +1,14 @@
 import React from "react";
 
-const SubmitButton = () => {
-  const handleClickSubmit = () => {};
+interface SubmitButtonProps {
+  email: string;
+  password: string;
+  handleSubmit(e: React.FormEvent): void;
+}
 
+const SubmitButton = ({ email, password, handleSubmit }: SubmitButtonProps) => {
   return (
-    <div
-      className="button-style md:md-button-style"
-      onClick={handleClickSubmit}
-    >
+    <div className="button-style md:md-button-style" onClick={handleSubmit}>
       Submit
     </div>
   );
