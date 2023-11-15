@@ -5,16 +5,7 @@ import Login from "./components/Login";
 
 function App() {
   return (
-    <div
-      className="
-      container
-      flex
-       items-center
-       justify-center
-       bg-gradient-to-b from-gray-300 to-black
-      h-screen 
-      w-auto"
-    >
+    <div className="app-base-style bg-gradient-to-b from-gray-300 to-black ">
       <Login />
     </div>
   );

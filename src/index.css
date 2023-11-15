@@ -6,6 +6,11 @@
 
 
 @layer components{
+
+    .app-base-style{
+        @apply container flex items-center justify-center h-screen w-auto;
+    }
+
     .input-style{
         @apply bg-slate-700 border-l-0 border-r-0 border-b-4 border-b-emerald-400 
         text-white;

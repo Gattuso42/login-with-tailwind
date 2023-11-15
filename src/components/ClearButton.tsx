@@ -1,10 +1,12 @@
 import React from "react";
 
-const handleClickClear = () => {};
+interface clearButtonProps {
+  handleClear(): void;
+}
 
-const ClearButton = () => {
+const ClearButton = ({ handleClear }: clearButtonProps) => {
   return (
-    <div className="button-style md:md-button-style" onClick={handleClickClear}>
+    <div className="button-style md:md-button-style" onClick={handleClear}>
       Clear
     </div>
   );

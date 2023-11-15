@@ -3,17 +3,19 @@ import { useState } from "react";
 import SubmitButton from "./SubmitButton";
 import ClearButton from "./ClearButton";
 
-const Login = () => {
-  interface UserData {
-    id: number;
-    email: string;
-    password: string;
-  }
-  let idGenerator: number = 0;
+interface UserData {
+  id: number;
+  email: string;
+  password: string;
+}
 
+let idGenerator: number = 0;
+
+const Login = () => {
   const [store, setStore] = useState<UserData[]>([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let user: UserData = {
@@ -30,7 +32,18 @@ const Login = () => {
     idGenerator++;
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === "Enter") handleSubmit(e);
+    else console.log("Incorrect Key");
+  };
+
+  const handleClear = () => {
+    setPassword("");
+    setEmail("");
+  };
+
   useEffect(() => {
+    if (store.length === 0) return;
     console.log(store);
     console.log(store.length);
   }, [store]);
@@ -41,9 +54,10 @@ const Login = () => {
                      rounded-lg translate-y-0 shadow-xl  md:w-96 "
     >
       <form
-        onSubmit={handleSubmit}
         action=""
-        className="grid md:place-items-center  gap-8 md:w-96"
+        className="grid md:place-items-center  gap-8 md:w-96 outline-none"
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
       >
         <div className="md:middle-input">
           <h2 className=" text-white">Email:</h2>
@@ -76,7 +90,7 @@ const Login = () => {
           password={password}
           handleSubmit={handleSubmit}
         />
-        <ClearButton />
+        <ClearButton handleClear={handleClear} />
       </form>
     </div>
   );
