@@ -8,7 +8,7 @@
 @layer components{
 
     .app-base-style{
-        @apply container flex items-center justify-center h-screen w-auto;
+        @apply  flex items-center justify-center  h-screen w-auto;
     }
 
     .input-style{
@@ -19,7 +19,7 @@
     .button-style{
         @apply flex justify-center items-center border-2 border-emerald-300
          bg-gray-700 rounded-xl active:bg-gray-200 text-white active:text-black
-          cursor-pointer;
+          cursor-pointer hover:bg-blue-600;
     }
 
     .middle-input{

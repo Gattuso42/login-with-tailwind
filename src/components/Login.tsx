@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import SubmitButton from "./SubmitButton";
 import ClearButton from "./ClearButton";
-
-interface UserData {
-  id: number;
-  email: string;
-  password: string;
-}
-
-let idGenerator: number = 0;
+import { UserData } from "../interfaces/interface";
+import { UserContext } from "../context/UserContext";
+import UserProvider from "../context/UserContext";
 
 const Login = () => {
-  const [store, setStore] = useState<UserData[]>([]);
+  // const [store, setStore] = useState<UserData[]>([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { setUser, setStore, store, idGenerator, setIdGenerator } =
+    useContext(UserContext);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,13 +21,13 @@ const Login = () => {
       email: email,
       password: password,
     };
+
+    setUser(user);
     setStore((prevStore) => [...prevStore, user]);
-    console.log(email);
-    console.log(password);
     setPassword("");
     setEmail("");
 
-    idGenerator++;
+    setIdGenerator(idGenerator + 1);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
@@ -50,8 +48,8 @@ const Login = () => {
 
   return (
     <div
-      className="  h-80  w-72 bg-gradient-to-b from-slate-800 to-emerald-500  top-32 absolute flex justify-center items-center
-                     rounded-lg translate-y-0 shadow-xl  md:w-96 "
+      className="  h-80  w-72 bg-gradient-to-b from-slate-800 to-emerald-500  top-32  flex justify-center items-center
+                     rounded-lg   md:w-96 "
     >
       <form
         action=""
@@ -66,6 +64,7 @@ const Login = () => {
             name="email"
             value={email}
             id="4"
+            autoComplete="off"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
             }
