@@ -12,6 +12,7 @@ function App() {
         <Login />
         <Dashboard />
         <DeleteButton />
+        <button className=" button-style w-[180px]">Test</button>
       </UserProvider>
     </div>
   );

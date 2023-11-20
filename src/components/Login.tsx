@@ -4,7 +4,6 @@ import SubmitButton from "./SubmitButton";
 import ClearButton from "./ClearButton";
 import { UserData } from "../interfaces/interface";
 import { UserContext } from "../context/UserContext";
-import UserProvider from "../context/UserContext";
 
 const Login = () => {
   // const [store, setStore] = useState<UserData[]>([]);
